@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Accueil</title>
+</head>
+<body>
+<!-- Preloader -->
+<div class="preloader">
+    <div class="loader">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
+        <div class="indicator">
+            <svg width="16px" height="12px">
+                <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<!-- Header Area -->
+<header class="header">
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-5 col-12">
+                    <ul class="top-link">
+                        <!-- Display this when the token is not null -->
+                        <li th:if="${token != null}" th:text="'Bienvenue ' + ${username} + '! Vous êtes connecté.'">Bienvenue Ayoub! Vous êtes connecté.</li>
+
+                        <!-- Display this when the token is null -->
+                        <li th:if="${token == null}">Bienvenue, veuillez vous connecter ou créer un compte.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-7 col-12">
+                    <ul class="top-contact">
+                        <li><i  th:if="${token!=null}"class="fa fa-envelope"></i><a href="mailto:support@yourmail.com" th:text="${email}">support@yourmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Inner -->
+    <div class="header-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-12">
+                    <div class="logo">
+                        <a href="#"><img src="/img/logo.png" alt="#"></a>
+                    </div>
+                    <div class="mobile-nav"></div>
+                </div>
+                <div class="col-lg-7 col-md-9 col-12" th:if="${token != null}">
+                    <nav class="navigation">
+                        <ul class="nav menu">
+                            <li><a href="home">Accueil</a></li>
+                            <!-- Display these links only if the token is not null -->
+                            <li ><a href="/tasks/allMytasks" th:if="${role!='MANAGER'}">Mes Tâches</a></li>
+                            <li ><a href="/tasks/alltasks" >Toutes les Tâches</a></li>
+                            <li ><a href="/tasks/create" th:if="${role=='MANAGER'}">Créer des Tâches</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-2 col-12" th:if="${token != null}">
+                    <div class="get-quote">
+                        <!-- Show "Déconnexion" if the token is not null -->
+                        <a  href="/api/auth/logout" class="btn">Déconnexion</a>
+                        <!-- Show "Connexion et Créer Compte" if the token is null -->
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12" style="display: flex; justify-content: flex-end; margin-left: 200px ; padding-bottom: 10px" th:if="${token == null}">
+                    <div class="get-quote">
+                            <a href="/api/auth/login" class="btn">Connexion</a>
+                            <a href="/api/auth/register" class="btn">Créer Compte</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/nice-select.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/icofont.css">
+    <link rel="stylesheet" href="/css/slicknav.min.css">
+    <link rel="stylesheet" href="/css/owl-carousel.css">
+    <link rel="stylesheet" href="/css/datepicker.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</header>
+
+<!-- Slider Area -->
+<section class="slider">
+    <div class="hero-slider">
+        <div class="single-slider" style="background-image:url('/img/slider2.jpeg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="text">
+                            <h1>Nous vous proposons une solution pour <span>gérer</span> vos tâches avec <span>simplicité!</span></h1>
+                            <p>Nous vous aidons à organiser et à gérer vos tâches de manière efficace et sans effort.</p>
+                            <div class="button">
+                                <a href="/tasks/create" class="btn">Créer votre tâche</a>
+                                <a href="#services" class="btn primary">En savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services section" id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Nous Offrons Différentes Solutions Pour Simplifier Vos Tâches</h2>
+                    <img src="/img/section-img.png" alt="#">
+                    <p>Explorez nos fonctionnalités conçues pour organiser, prioriser et suivre vos tâches avec efficacité.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="icofont icofont-tasks"></i>
+                    <h4><a href="service-details.html">Création de Tâches</a></h4>
+                    <p>Ajoutez et organisez vos tâches en quelques clics, avec des options de priorité et de délais clairs.</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="icofont icofont-check"></i>
+                    <h4><a href="service-details.html">Suivi des Progrès</a></h4>
+                    <p>Suivez vos tâches en temps réel pour vous assurer de respecter vos objectifs et vos délais.</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="icofont icofont-users"></i>
+                    <h4><a href="service-details.html">Collaboration en Équipe</a></h4>
+                    <p>Partagez vos tâches et travaillez avec votre équipe pour une productivité optimale.</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="icofont icofont-alarm"></i>
+                    <h4><a href="service-details.html">Rappels Automatiques</a></h4>
+                    <p>Recevez des notifications pour vous rappeler vos échéances et vos tâches importantes.</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="icofont icofont-calendar"></i>
+                    <h4><a href="service-details.html">Planification de Projets</a></h4>
+                    <p>Planifiez vos projets avec des outils intuitifs qui vous permettent de gérer toutes vos étapes.</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="icofont icofont-dashboard"></i>
+                    <h4><a href="service-details.html">Tableau de Bord</a></h4>
+                    <p>Consultez un tableau de bord complet pour visualiser vos tâches et vos priorités en un coup d'œil.</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- JS Libraries -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-migrate-3.0.0.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

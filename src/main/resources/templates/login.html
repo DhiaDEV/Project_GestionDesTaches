@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Site keywords here">
+    <meta name="description" content="">
+    <meta name="copyright" content="">
+
+    <!-- Title -->
+    <title>TO DO</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/nice-select.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/icofont.css">
+    <link rel="stylesheet" href="/css/slicknav.min.css">
+    <link rel="stylesheet" href="/css/owl-carousel.css">
+    <link rel="stylesheet" href="/css/datepicker.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .contact-us.section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: #f4f4f4; /* Optional background color */
+        }
+        .contact-us-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .checkbox {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Contact Us Section -->
+<section class="contact-us section">
+    <div class="contact-us-form">
+        <h2>Connexion</h2>
+        <p>Connectez-vous et créez vos propres tâches à effectuer plus tard.</p>
+        <!-- Form -->
+        <form class="form" th:action="@{/api/auth/login}" method="post">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <input type="text" name="email" id="email" placeholder="Adresse e-mail" required>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group login-btn">
+                        <button class="btn" type="submit">Se connecter</button>
+                    </div>
+                </div>
+                <div class="back-home-btn col-lg-12" style="margin-left: 110px; margin-top: 50px">
+                    <a href="/api/auth/home" >Retour Accueil</a>
+                </div>
+            </div>
+        </form>
+        <!-- End Form -->
+        <!-- Message d'erreur si la connexion échoue -->
+        <div th:if="${error}" class="error">
+            <p th:text="${error}"></p>
+        </div>
+
+        <!-- Message de succès après une connexion réussie -->
+        <div th:if="${success}" class="success">
+            <p th:text="${success}"></p>
+        </div>
+    </div>
+</section>
+
+
+<!-- JS Files -->
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/jquery-migrate-3.0.0.js"></script>
+<script src="../static/js/jquery-ui.min.js"></script>
+<script src="../static/js/easing.js"></script>
+<script src="../static/js/colors.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap-datepicker.js"></script>
+<script src="../static/js/jquery.nav.js"></script>
+<script src="../static/js/slicknav.min.js"></script>
+<script src="../static/js/jquery.scrollUp.min.js"></script>
+<script src="../static/js/niceselect.js"></script>
+<script src="../static/js/tilt.jquery.min.js"></script>
+<script src="../static/js/owl-carousel.js"></script>
+<script src="../static/js/jquery.counterup.min.js"></script>
+<script src="../static/js/steller.js"></script>
+<script src="../static/js/wow.min.js"></script>
+<script src="../static/js/jquery.magnific-popup.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyDGqTyqoPIvYxhn_Sa7ZrK5bENUWhpCo0w"></script>
+<script src="../static/js/gmaps.min.js"></script>
+<script src="../static/js/map-active.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/main.js"></script>
+</body>
+</html>

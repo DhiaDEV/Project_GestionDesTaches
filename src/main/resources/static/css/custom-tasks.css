@@ -1,0 +1,40 @@
+/* Styles for tasks to do */
+.single-schedule.EN_COURS {
+    border-left: 15px solid #ffc107; /* Yellow border for to-do tasks */
+}
+
+.single-schedule.EN_COURS .icon {
+    background-color: #fff9c4; /* Light yellow background for the icon */
+}
+
+.single-schedule.EN_COURS h4 {
+    color: #ffc107; /* Yellow text for the status */
+}
+
+/* Styles for tasks done */
+.single-schedule.TERMINE {
+    border-left: 15px solid #4caf50; /* Green border for done tasks */
+}
+
+.single-schedule.TERMINE .icon {
+    background-color: #e8f5e9; /* Light green background for the icon */
+}
+
+.single-schedule.TERMINE h4 {
+    color: #4caf50; /* Green text for the status */
+}
+
+/* Additional hover effects */
+.single-schedule.EN_COURS:hover,
+.single-schedule.TERMINE:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+.optionspr{
+
+    width: 320px;
+    height: 50.8px;
+    padding-left: 50px;
+    padding-top: 10px;
+}

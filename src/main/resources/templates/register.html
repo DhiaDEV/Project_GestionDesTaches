@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Site keywords here">
+    <meta name="description" content="">
+    <meta name="copyright" content="">
+
+    <!-- Title -->
+    <title>TO DO</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/nice-select.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/icofont.css">
+    <link rel="stylesheet" href="/css/slicknav.min.css">
+    <link rel="stylesheet" href="/css/owl-carousel.css">
+    <link rel="stylesheet" href="/css/datepicker.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+
+</head>
+<body>
+
+<!-- Contact Us Section -->
+<section class="contact-us section">
+    <div class="container">
+        <div class="inner">
+            <div class="row">
+                <div class="contact-us-form">
+                    <h2>Inscription</h2>
+                    <p>Inscrivez-vous et créez vos propres tâches à effectuer plus tard.</p>
+                    <!-- Form -->
+                    <form class="form" th:action="@{/api/auth/register}" method="post">
+
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" id="email" name="email" placeholder="Adresse e-mail" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
+                                </div>
+                            </div>
+                            <div class="container mt-1">
+                                <p class="mb-4 ">Select Your Role</p>
+                                <div class="row ml-2">
+                                    <div class="col-auto"> <!-- Use col-auto to make columns auto-sized -->
+                                        <div class="form-check">
+                                            <input
+                                                    class="form-check-input small-radio"
+                                                    type="radio"
+                                                    id="manager"
+                                                    name="role"
+                                                    value="MANAGER"
+                                            >
+                                            <label class="" for="manager">
+                                                Manager
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="form-check">
+                                            <input
+                                                    checked
+                                                    class="form-check-input"
+                                                    type="radio"
+                                                    id="developer"
+                                                    name="role"
+                                                    value="DEVELOPER"
+                                            >
+                                            <label class="" for="developer">
+                                                Developer
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group login-btn">
+                                    <button class="btn" type="submit">S'inscrire</button>
+                                </div>
+                            </div>
+                            <div class="back-home-btn col-lg-12" style="margin-left: 483px; margin-top: 50px">
+                                <a href="/api/auth/home" >Retour Accueil</a>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End Form -->
+                    <!-- Message d'erreur si l'inscription échoue -->
+                    <div th:if="${error}" class="error">
+                        <p th:text="${error}"></p>
+                    </div>
+
+                    <!-- Message de succès après une inscription réussie -->
+                    <div th:if="${message}" class="success">
+                        <p th:text="${message}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- JS Files -->
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/jquery-migrate-3.0.0.js"></script>
+<script src="../static/js/jquery-ui.min.js"></script>
+<script src="../static/js/easing.js"></script>
+<script src="../static/js/colors.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap-datepicker.js"></script>
+<script src="../static/js/jquery.nav.js"></script>
+<script src="../static/js/slicknav.min.js"></script>
+<script src="../static/js/jquery.scrollUp.min.js"></script>
+<script src="../static/js/niceselect.js"></script>
+<script src="../static/js/tilt.jquery.min.js"></script>
+<script src="../static/js/owl-carousel.js"></script>
+<script src="../static/js/jquery.counterup.min.js"></script>
+<script src="../static/js/steller.js"></script>
+<script src="../static/js/wow.min.js"></script>
+<script src="../static/js/jquery.magnific-popup.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyDGqTyqoPIvYxhn_Sa7ZrK5bENUWhpCo0w"></script>
+<script src="../static/js/gmaps.min.js"></script>
+<script src="../static/js/map-active.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/main.js"></script>
+</body>
+</html>
